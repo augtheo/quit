@@ -1,0 +1,9 @@
+services:
+  quit:
+    build:
+      context: ./
+      dockerfile: ./dockerfile
+    volumes:
+      - /project/node_modules
+    ports:
+      - 7000:3000
