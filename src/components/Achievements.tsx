@@ -21,8 +21,8 @@ export function Achievements({ achievements, quitPoints }: AchievementsProps) {
           animate={{ opacity: 1, y: 0 }}
           className="text-center space-y-2 pt-4"
         >
-          <h1 className="text-blue-900">Achievements</h1>
-          <p className="text-gray-600">
+          <h1 className="text-text">Achievements</h1>
+          <p className="text-subtext0">
             Celebrate your milestones and victories
           </p>
         </motion.div>
@@ -31,7 +31,7 @@ export function Achievements({ achievements, quitPoints }: AchievementsProps) {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-3xl p-6 text-white shadow-xl"
+          className="bg-gradient-to-br from-yellow to-peach rounded-3xl p-6 text-crust shadow-xl"
         >
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
@@ -46,12 +46,12 @@ export function Achievements({ achievements, quitPoints }: AchievementsProps) {
               <span>Achievements Unlocked</span>
               <span>{unlockedCount}/{totalCount}</span>
             </div>
-            <div className="w-full bg-white/30 rounded-full h-3 overflow-hidden">
+            <div className="w-full bg-base/30 rounded-full h-3 overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 1, ease: 'easeOut' }}
-                className="h-full bg-white rounded-full"
+                className="h-full bg-base rounded-full"
               />
             </div>
           </div>
@@ -59,7 +59,7 @@ export function Achievements({ achievements, quitPoints }: AchievementsProps) {
 
         {/* Achievements Grid */}
         <div className="space-y-4">
-          <h2 className="text-gray-900">Your Badges</h2>
+          <h2 className="text-text">Your Badges</h2>
           
           <div className="grid grid-cols-2 gap-4">
             {achievements.map((achievement, index) => (
@@ -68,10 +68,10 @@ export function Achievements({ achievements, quitPoints }: AchievementsProps) {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.05 }}
-                className={`relative rounded-2xl p-6 text-center transition-all ${
+                className={`relative rounded-2xl p-6 text-center text-crust  transition-all ${
                   achievement.unlocked
-                    ? 'bg-gradient-to-br from-blue-400 to-purple-500 shadow-lg'
-                    : 'bg-gray-200'
+                    ? 'bg-gradient-to-br from-blue to-mauve shadow-lg'
+                    : 'bg-surface0'
                 }`}
               >
                 {achievement.unlocked ? (
@@ -84,12 +84,12 @@ export function Achievements({ achievements, quitPoints }: AchievementsProps) {
                     >
                       {achievement.icon}
                     </motion.div>
-                    <h3 className="text-white mb-2">{achievement.name}</h3>
-                    <p className="text-sm text-white/90">
+                    <h3 className="text-crust mb-2">{achievement.name}</h3>
+                    <p className="text-sm text-crust/90">
                       {achievement.description}
                     </p>
                     {achievement.unlockedAt && (
-                      <div className="mt-3 text-xs text-white/75">
+                      <div className="mt-3 text-xs text-crust/75">
                         {new Date(achievement.unlockedAt).toLocaleDateString()}
                       </div>
                     )}
@@ -98,10 +98,10 @@ export function Achievements({ achievements, quitPoints }: AchievementsProps) {
                   <>
                     <div className="text-5xl mb-3 opacity-30 relative">
                       {achievement.icon}
-                      <Lock className="w-6 h-6 text-gray-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                      <Lock className="w-6 h-6 text-overlay2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                     </div>
-                    <h3 className="text-gray-600 mb-2">{achievement.name}</h3>
-                    <p className="text-sm text-gray-500">
+                    <h3 className="text-subtext0 mb-2">{achievement.name}</h3>
+                    <p className="text-sm text-subtext1">
                       {achievement.description}
                     </p>
                   </>
@@ -115,7 +115,7 @@ export function Achievements({ achievements, quitPoints }: AchievementsProps) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-r from-green-400 to-emerald-500 rounded-2xl p-6 text-white text-center"
+          className="bg-gradient-to-r from-green to-teal rounded-2xl p-6 text-crust text-center"
         >
           <Sparkles className="w-8 h-8 mx-auto mb-3" />
           <h3 className="mb-2">Keep Collecting!</h3>
@@ -126,21 +126,21 @@ export function Achievements({ achievements, quitPoints }: AchievementsProps) {
         </motion.div>
 
         {/* How to Earn Points */}
-        <div className="bg-white rounded-2xl p-6 shadow-lg space-y-4">
-          <h3 className="text-gray-900">How to Earn Points</h3>
+        <div className="bg-base rounded-2xl p-6 shadow-lg space-y-4">
+          <h3 className="text-text">How to Earn Points</h3>
           <div className="space-y-3">
-            <div className="flex items-start gap-3 bg-green-50 rounded-xl p-3">
-              <Sparkles className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 bg-green/20 rounded-xl p-3">
+              <Sparkles className="w-5 h-5 text-green flex-shrink-0 mt-0.5" />
               <div>
-                <div className="text-green-900">Conquer a Craving</div>
-                <div className="text-sm text-green-700">+10 points</div>
+                <div className="text-green">Conquer a Craving</div>
+                <div className="text-sm text-green">+10 points</div>
               </div>
             </div>
-            <div className="flex items-start gap-3 bg-blue-50 rounded-xl p-3">
-              <Sparkles className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 bg-blue/20 rounded-xl p-3">
+              <Sparkles className="w-5 h-5 text-blue flex-shrink-0 mt-0.5" />
               <div>
-                <div className="text-blue-900">Unlock an Achievement</div>
-                <div className="text-sm text-blue-700">Automatic when you hit milestones</div>
+                <div className="text-blue">Unlock an Achievement</div>
+                <div className="text-sm text-blue">Automatic when you hit milestones</div>
               </div>
             </div>
           </div>

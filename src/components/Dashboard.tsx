@@ -106,12 +106,12 @@ export function Dashboard({
           animate={{ opacity: 1, y: 0 }}
           className="text-center space-y-2 pt-4"
         >
-          <h1 className="text-blue-900">Quieres fumar?</h1>
-          <div className="flex items-center justify-center gap-2 bg-white rounded-full px-4 py-2 shadow-sm inline-flex">
-            <Sparkles className="w-5 h-5 text-yellow-500" />
-            <span className="text-gray-700">{quitPoints} Points</span>
-            <span className="text-gray-400">•</span>
-            <span className="text-blue-600">{stats.level}</span>
+          <h1 className="text-text">Quieres fumar?</h1>
+          <div className="flex items-center justify-center gap-2 bg-base rounded-full px-4 py-2 shadow-sm inline-flex">
+            <Sparkles className="w-5 h-5 text-yellow" />
+            <span className="text-subtext1">{quitPoints} Points</span>
+            <span className="text-overlay2">•</span>
+            <span className="text-blue">{stats.level}</span>
           </div>
         </motion.div>
 
@@ -122,9 +122,9 @@ export function Dashboard({
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-4"
+              className="bg-blue/20 border-2 border-blue rounded-2xl p-4"
             >
-              <p className="text-blue-900 text-center">
+              <p className="text-blue text-center">
                 The journey continues. Every moment is a new chance to succeed. 
                 Focus on the next smoke-free hour. You've got this! 💪
               </p>
@@ -136,7 +136,7 @@ export function Dashboard({
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-gradient-to-br from-orange-400 to-red-500 rounded-3xl p-6 text-white shadow-xl"
+          className="bg-gradient-to-br from-peach to-red rounded-3xl p-6 text-crust shadow-xl"
         >
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
@@ -158,12 +158,12 @@ export function Dashboard({
               <span>Level: {stats.level}</span>
               <span>{Math.round(stats.levelProgress)}%</span>
             </div>
-            <div className="w-full bg-white/30 rounded-full h-3 overflow-hidden">
+            <div className="w-full bg-base/30 rounded-full h-3 overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${stats.levelProgress}%` }}
                 transition={{ duration: 1, ease: 'easeOut' }}
-                className="h-full bg-white rounded-full"
+                className="h-full bg-base rounded-full"
               />
             </div>
           </div>
@@ -175,27 +175,27 @@ export function Dashboard({
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white rounded-2xl p-5 shadow-lg"
+            className="bg-surface0 rounded-2xl p-5 shadow-lg"
           >
             <div className="flex items-center gap-2 mb-2">
-              <DollarSign className="w-6 h-6 text-green-600" />
-              <span className="text-gray-600">Saved</span>
+              <DollarSign className="w-6 h-6 text-green" />
+              <span className="text-subtext0">Saved</span>
             </div>
-            <div className="text-3xl text-green-600">₹{stats.moneySaved.toFixed(2)}</div>
+            <div className="text-3xl text-green">₹{stats.moneySaved.toFixed(2)}</div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white rounded-2xl p-5 shadow-lg"
+            className="bg-surface0 rounded-2xl p-5 shadow-lg"
           >
             <div className="flex items-center gap-2 mb-2">
-              <Ban className="w-6 h-6 text-blue-600" />
-              <span className="text-gray-600">Avoided</span>
+              <Ban className="w-6 h-6 text-blue" />
+              <span className="text-subtext0">Avoided</span>
             </div>
-            <div className="text-3xl text-blue-600">{stats.cigarettesAvoided}</div>
-            <div className="text-sm text-gray-500">cigarettes</div>
+            <div className="text-3xl text-blue">{stats.cigarettesAvoided}</div>
+            <div className="text-sm text-subtext1">cigarettes</div>
           </motion.div>
         </div>
 
@@ -205,7 +205,7 @@ export function Dashboard({
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           onClick={() => setShowMyWhy(true)}
-          className="w-full bg-gradient-to-r from-pink-400 to-purple-500 text-white rounded-2xl p-5 shadow-lg hover:shadow-xl transition-shadow"
+          className="w-full bg-gradient-to-r from-pink to-mauve text-crust rounded-2xl p-5 shadow-lg hover:shadow-xl transition-shadow"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -224,11 +224,11 @@ export function Dashboard({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="bg-white rounded-2xl p-5 shadow-lg"
+          className="bg-base rounded-2xl p-5 shadow-lg"
         >
-          <h3 className="text-gray-900 mb-3">Today's Goal</h3>
-          <div className="bg-blue-50 rounded-xl p-4 border-2 border-blue-200">
-            <p className="text-blue-900">Stay smoke-free today! 🎯</p>
+          <h3 className="text-text mb-3">Today's Goal</h3>
+          <div className="bg-blue/20 rounded-xl p-4 border-2 border-blue">
+            <p className="text-blue">Stay smoke-free today! 🎯</p>
           </div>
         </motion.div>
 
@@ -241,7 +241,7 @@ export function Dashboard({
         >
           <button
             onClick={() => setShowCravingModal(true)}
-            className="bg-gradient-to-br from-green-400 to-emerald-500 text-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all active:scale-95"
+            className="bg-gradient-to-br from-green to-teal text-crust rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all active:scale-95"
           >
             <div className="flex flex-col items-center gap-2">
               <Sparkles className="w-8 h-8" />
@@ -252,7 +252,7 @@ export function Dashboard({
 
           <button
             onClick={() => setShowQuickLog(true)}
-            className="bg-gradient-to-br from-gray-400 to-gray-500 text-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all active:scale-95"
+            className="bg-gradient-to-br from-overlay0 bg-red text-crust rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all active:scale-95"
           >
             <div className="flex flex-col items-center gap-2">
               <AlertCircle className="w-8 h-8" />
@@ -268,20 +268,20 @@ export function Dashboard({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="bg-white rounded-2xl p-5 shadow-lg"
+            className="bg-base rounded-2xl p-5 shadow-lg"
           >
-            <h3 className="text-gray-900 mb-3">Recent Victories</h3>
+            <h3 className="text-text mb-3">Recent Victories</h3>
             <div className="space-y-2">
               {cravingConquests.slice(-3).reverse().map((conquest) => (
                 <div
                   key={conquest.id}
-                  className="flex items-center justify-between bg-green-50 rounded-xl p-3"
+                  className="flex items-center justify-between bg-green/20 rounded-xl p-3"
                 >
                   <div className="flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-green-600" />
-                    <span className="text-gray-700">Craving conquered!</span>
+                    <Sparkles className="w-5 h-5 text-green" />
+                    <span className="text-subtext1">Craving conquered!</span>
                   </div>
-                  <span className="text-green-600">+{conquest.points} pts</span>
+                  <span className="text-green">+{conquest.points} pts</span>
                 </div>
               ))}
             </div>

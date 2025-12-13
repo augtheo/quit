@@ -138,15 +138,15 @@ export function CopingMechanisms({ userProfile }: CopingMechanismsProps) {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'breathing':
-        return 'from-blue-400 to-cyan-500';
+        return 'from-blue to-sky';
       case 'mental':
-        return 'from-purple-400 to-pink-500';
+        return 'from-mauve to-pink';
       case 'physical':
-        return 'from-green-400 to-emerald-500';
+        return 'from-green to-teal';
       case 'distraction':
-        return 'from-orange-400 to-red-500';
+        return 'from-peach to-red';
       default:
-        return 'from-gray-400 to-gray-500';
+        return 'from-overlay0 to-overlay1';
     }
   };
 
@@ -183,8 +183,8 @@ export function CopingMechanisms({ userProfile }: CopingMechanismsProps) {
           animate={{ opacity: 1, y: 0 }}
           className="text-center space-y-2 pt-4"
         >
-          <h1 className="text-blue-900">Coping Tools</h1>
-          <p className="text-gray-600">
+          <h1 className="text-text">Coping Tools</h1>
+          <p className="text-subtext0">
             Quick techniques to beat cravings when they hit
           </p>
         </motion.div>
@@ -193,13 +193,13 @@ export function CopingMechanisms({ userProfile }: CopingMechanismsProps) {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-gradient-to-br from-red-400 to-pink-500 rounded-3xl p-6 text-white shadow-xl"
+          className="bg-gradient-to-br from-red to-pink rounded-3xl p-6 text-crust shadow-xl"
         >
           <h2 className="mb-2">Craving Right Now?</h2>
           <p className="text-sm opacity-90 mb-4">
             Pick a technique below and follow the steps. Cravings typically pass in 3-5 minutes!
           </p>
-          <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 text-center">
+          <div className="bg-base/20 backdrop-blur-sm rounded-xl p-3 text-center">
             <p className="text-sm">
               Remember: <strong>Cravings are temporary.</strong> You are stronger! 💪
             </p>
@@ -208,7 +208,7 @@ export function CopingMechanisms({ userProfile }: CopingMechanismsProps) {
 
         {/* Techniques Grid */}
         <div className="space-y-4">
-          <h2 className="text-gray-900">Choose a Technique</h2>
+          <h2 className="text-text">Choose a Technique</h2>
           
           <div className="space-y-3">
             {TECHNIQUES.map((technique, index) => (
@@ -220,20 +220,20 @@ export function CopingMechanisms({ userProfile }: CopingMechanismsProps) {
                 onClick={() => startTechnique(technique)}
                 className={`w-full text-left bg-gradient-to-r ${getCategoryColor(
                   technique.category
-                )} rounded-2xl p-5 text-white shadow-lg hover:shadow-xl transition-all active:scale-98`}
+                )} rounded-2xl p-5 text-crust shadow-lg hover:shadow-xl transition-all active:scale-98`}
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-base/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
                     {getIcon(technique.icon)}
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1">
-                      <h3 className="text-white">{technique.title}</h3>
-                      <span className="text-xs bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">
+                      <h3 className="text-crust">{technique.title}</h3>
+                      <span className="text-xs bg-base/20 backdrop-blur-sm px-2 py-1 rounded-full">
                         {technique.duration}
                       </span>
                     </div>
-                    <p className="text-sm text-white/90">{technique.description}</p>
+                    <p className="text-sm text-crust/90">{technique.description}</p>
                   </div>
                 </div>
               </motion.button>
@@ -245,10 +245,10 @@ export function CopingMechanisms({ userProfile }: CopingMechanismsProps) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-2xl p-6 shadow-lg space-y-4"
+          className="bg-base rounded-2xl p-6 shadow-lg space-y-4"
         >
-          <h3 className="text-gray-900">Quick Tips</h3>
-          <div className="space-y-3 text-sm text-gray-600">
+          <h3 className="text-text">Quick Tips</h3>
+          <div className="space-y-3 text-sm text-subtext0">
             <p>✓ Cravings usually last 3-5 minutes</p>
             <p>✓ The urge will pass whether you smoke or not</p>
             <p>✓ Every craving you resist makes you stronger</p>
@@ -274,25 +274,25 @@ export function CopingMechanisms({ userProfile }: CopingMechanismsProps) {
               exit={{ opacity: 0, y: 50 }}
               className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br ${getCategoryColor(
                 selectedTechnique.category
-              )} rounded-3xl p-8 z-50 max-w-md w-[90%] mx-auto shadow-2xl text-white`}
+              )} rounded-3xl p-8 z-50 max-w-md w-[90%] mx-auto shadow-2xl text-crust`}
             >
               <button
                 onClick={closeTechnique}
-                className="absolute top-4 right-4 p-2 hover:bg-white/20 rounded-full transition-colors"
+                className="absolute top-4 right-4 p-2 hover:bg-base/20 rounded-full transition-colors"
               >
-                <X className="w-6 h-6 text-white" />
+                <X className="w-6 h-6 text-crust" />
               </button>
 
               <div className="space-y-6">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-base/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
                     {getIcon(selectedTechnique.icon)}
                   </div>
                   <h2 className="mb-2">{selectedTechnique.title}</h2>
                   <p className="text-sm opacity-90">{selectedTechnique.description}</p>
                 </div>
 
-                <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6">
+                <div className="bg-base/20 backdrop-blur-sm rounded-2xl p-6">
                   <div className="flex justify-between items-center mb-4">
                     <span className="text-sm">
                       Step {currentStep + 1} of {selectedTechnique.instructions.length}
@@ -316,7 +316,7 @@ export function CopingMechanisms({ userProfile }: CopingMechanismsProps) {
                   {currentStep > 0 && (
                     <button
                       onClick={previousStep}
-                      className="flex-1 bg-white/20 backdrop-blur-sm text-white rounded-xl py-3 hover:bg-white/30 transition-colors"
+                      className="flex-1 bg-base/20 backdrop-blur-sm text-crust rounded-xl py-3 hover:bg-base/30 transition-colors"
                     >
                       Previous
                     </button>
@@ -324,14 +324,14 @@ export function CopingMechanisms({ userProfile }: CopingMechanismsProps) {
                   {currentStep < selectedTechnique.instructions.length - 1 ? (
                     <button
                       onClick={nextStep}
-                      className="flex-1 bg-white text-gray-900 rounded-xl py-3 hover:bg-gray-100 transition-colors"
+                      className="flex-1 bg-base text-white-75 rounded-xl py-3 hover:bg-surface0 transition-colors"
                     >
                       Next Step
                     </button>
                   ) : (
                     <button
                       onClick={closeTechnique}
-                      className="flex-1 bg-white text-gray-900 rounded-xl py-3 hover:bg-gray-100 transition-colors"
+                      className="flex-1 bg-base text-white-75 rounded-xl py-3 hover:bg-surface0 transition-colors"
                     >
                       Complete! 🎉
                     </button>

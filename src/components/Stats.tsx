@@ -107,8 +107,8 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
           animate={{ opacity: 1, y: 0 }}
           className="text-center space-y-2 pt-4"
         >
-          <h1 className="text-blue-900">Statistics & History</h1>
-          <p className="text-gray-600">
+          <h1 className="text-text">Statistics & History</h1>
+          <p className="text-subtext0">
             Track your progress over time
           </p>
         </motion.div>
@@ -123,11 +123,11 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
             <Card>
               <CardContent className="p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <Ban className="w-5 h-5 text-blue-600" />
-                  <span className="text-sm text-gray-600">Avoided</span>
+                  <Ban className="w-5 h-5 text-blue" />
+                  <span className="text-sm text-subtext0">Avoided</span>
                 </div>
-                <div className="text-2xl text-blue-600">{overallStats.cigarettesAvoided}</div>
-                <div className="text-xs text-gray-500">cigarettes</div>
+                <div className="text-2xl text-blue">{overallStats.cigarettesAvoided}</div>
+                <div className="text-xs text-subtext1">cigarettes</div>
               </CardContent>
             </Card>
           </motion.div>
@@ -140,11 +140,11 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
             <Card>
               <CardContent className="p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <IndianRupee className="w-5 h-5 text-green-600" />
-                  <span className="text-sm text-gray-600">Saved</span>
+                  <IndianRupee className="w-5 h-5 text-green" />
+                  <span className="text-sm text-subtext0">Saved</span>
                 </div>
-                <div className="text-2xl text-green-600">₹{overallStats.moneySaved.toFixed(0)}</div>
-                <div className="text-xs text-gray-500">total</div>
+                <div className="text-2xl text-green">₹{overallStats.moneySaved.toFixed(0)}</div>
+                <div className="text-xs text-subtext1">total</div>
               </CardContent>
             </Card>
           </motion.div>
@@ -157,11 +157,11 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
             <Card>
               <CardContent className="p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <TrendingDown className="w-5 h-5 text-purple-600" />
-                  <span className="text-sm text-gray-600">Reduction</span>
+                  <TrendingDown className="w-5 h-5 text-mauve" />
+                  <span className="text-sm text-subtext0">Reduction</span>
                 </div>
-                <div className="text-2xl text-purple-600">{overallStats.reductionRate}%</div>
-                <div className="text-xs text-gray-500">vs baseline</div>
+                <div className="text-2xl text-mauve">{overallStats.reductionRate}%</div>
+                <div className="text-xs text-subtext1">vs baseline</div>
               </CardContent>
             </Card>
           </motion.div>
@@ -174,11 +174,11 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
             <Card>
               <CardContent className="p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <Sparkles className="w-5 h-5 text-yellow-600" />
-                  <span className="text-sm text-gray-600">Conquests</span>
+                  <Sparkles className="w-5 h-5 text-yellow" />
+                  <span className="text-sm text-subtext0">Conquests</span>
                 </div>
-                <div className="text-2xl text-yellow-600">{overallStats.totalConquests}</div>
-                <div className="text-xs text-gray-500">cravings beat</div>
+                <div className="text-2xl text-yellow">{overallStats.totalConquests}</div>
+                <div className="text-xs text-subtext1">cravings beat</div>
               </CardContent>
             </Card>
           </motion.div>
@@ -192,7 +192,7 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
         >
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-gray-900">
+              <CardTitle className="flex items-center gap-2 text-text">
                 <Activity className="w-5 h-5" />
                 Daily Cigarettes (Last 30 Days)
               </CardTitle>
@@ -201,7 +201,7 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
             <CardContent>
               <ResponsiveContainer width="100%" height={200}>
                 <LineChart data={dailyStats}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-surface2)" />
                   <XAxis 
                     dataKey="date" 
                     tick={{ fontSize: 12 }}
@@ -210,17 +210,17 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
                   <YAxis tick={{ fontSize: 12 }} />
                   <Tooltip 
                     contentStyle={{ 
-                      backgroundColor: 'white', 
-                      border: '1px solid #e5e7eb',
+                      backgroundColor: 'var(--color-base)', 
+                      border: '1px solid var(--color-surface2)',
                       borderRadius: '8px'
                     }}
                   />
                   <Line 
                     type="monotone" 
                     dataKey="cigarettes" 
-                    stroke="#ef4444" 
+                    stroke="var(--color-red)" 
                     strokeWidth={2}
-                    dot={{ fill: '#ef4444', r: 3 }}
+                    dot={{ fill: 'var(--color-red)', r: 3 }}
                   />
                 </LineChart>
               </ResponsiveContainer>
@@ -236,7 +236,7 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
         >
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-gray-900">
+              <CardTitle className="flex items-center gap-2 text-text">
                 <Sparkles className="w-5 h-5" />
                 Daily Craving Conquests
               </CardTitle>
@@ -245,7 +245,7 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
             <CardContent>
               <ResponsiveContainer width="100%" height={200}>
                 <BarChart data={dailyStats}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-surface2)" />
                   <XAxis 
                     dataKey="date" 
                     tick={{ fontSize: 12 }}
@@ -254,12 +254,12 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
                   <YAxis tick={{ fontSize: 12 }} />
                   <Tooltip 
                     contentStyle={{ 
-                      backgroundColor: 'white', 
-                      border: '1px solid #e5e7eb',
+                      backgroundColor: 'var(--color-base)', 
+                      border: '1px solid var(--color-surface2)',
                       borderRadius: '8px'
                     }}
                   />
-                  <Bar dataKey="conquests" fill="#10b981" radius={[8, 8, 0, 0]} />
+                  <Bar dataKey="conquests" fill="var(--color-green)" radius={[8, 8, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
@@ -275,7 +275,7 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
           >
             <Card>
               <CardHeader>
-                <CardTitle className="text-gray-900">Common Triggers</CardTitle>
+                <CardTitle className="text-text">Common Triggers</CardTitle>
                 <CardDescription>Where/when slip-ups happen most</CardDescription>
               </CardHeader>
               <CardContent>
@@ -288,10 +288,10 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
                     return (
                       <div key={item.name}>
                         <div className="flex items-center justify-between mb-1">
-                          <span className="text-sm text-gray-700">{item.name}</span>
-                          <span className="text-sm text-gray-500">{item.value} ({percentage}%)</span>
+                          <span className="text-sm text-subtext1">{item.name}</span>
+                          <span className="text-sm text-subtext1">{item.value} ({percentage}%)</span>
                         </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
+                        <div className="w-full bg-surface0 rounded-full h-2">
                           <div
                             className="h-2 rounded-full transition-all"
                             style={{
@@ -318,7 +318,7 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
           >
             <Card>
               <CardHeader>
-                <CardTitle className="text-gray-900">Craving Intensity</CardTitle>
+                <CardTitle className="text-text">Craving Intensity</CardTitle>
                 <CardDescription>Distribution of craving strength</CardDescription>
               </CardHeader>
               <CardContent>
@@ -331,7 +331,7 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
                       labelLine={false}
                       label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
                       outerRadius={80}
-                      fill="#8884d8"
+                      fill="var(--color-mauve)"
                       dataKey="count"
                     >
                       {cravingStrengthData.map((entry, index) => (
@@ -352,9 +352,9 @@ export function Stats({ userProfile, cigaretteLogs, cravingConquests, quitPoints
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
-          <Card className="bg-gradient-to-r from-blue-500 to-purple-600 border-none">
-            <CardContent className="p-6 text-white space-y-3">
-              <h3 className="text-white">💡 Insights</h3>
+          <Card className="bg-gradient-to-r from-blue to-mauve border-none">
+            <CardContent className="p-6 text-crust space-y-3">
+              <h3 className="text-crust">💡 Insights</h3>
               {overallStats.reductionRate > 50 && (
                 <p className="text-sm opacity-90">
                   Amazing! You've reduced your smoking by over {overallStats.reductionRate}%!

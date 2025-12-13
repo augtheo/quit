@@ -47,25 +47,25 @@ export function QuickLogModal({ isOpen, onClose, onSubmit }: QuickLogModalProps)
             onClick={onClose}
           />
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
-            className="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl p-6 z-50 max-h-[80vh] overflow-y-auto"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-base rounded-3xl p-8 z-50 max-w-md w-[90%] mx-auto"
           >
             <div className="max-w-md mx-auto">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-gray-900">Log Slip-Up</h2>
+                <h2 className="text-text">Log Slip-Up</h2>
                 <button
                   onClick={onClose}
-                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  className="p-2 hover:bg-surface0 rounded-full transition-colors"
                 >
                   <X className="w-6 h-6" />
                 </button>
               </div>
 
               <div className="space-y-6">
-                <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-4">
-                  <p className="text-blue-900 text-center">
+                <div className="bg-blue/20 border-2 border-blue rounded-xl p-4">
+                  <p className="text-blue text-center">
                     It's okay to have setbacks. Logging helps you understand your patterns. 
                     Every moment is a new chance to start fresh! 💙
                   </p>
@@ -73,7 +73,7 @@ export function QuickLogModal({ isOpen, onClose, onSubmit }: QuickLogModalProps)
 
                 {/* Location */}
                 <div className="space-y-3">
-                  <label className="flex items-center gap-2 text-gray-700">
+                  <label className="flex items-center gap-2 text-subtext1">
                     <MapPin className="w-5 h-5" />
                     Where/When? (Optional)
                   </label>
@@ -84,8 +84,8 @@ export function QuickLogModal({ isOpen, onClose, onSubmit }: QuickLogModalProps)
                         onClick={() => setLocation(loc)}
                         className={`px-4 py-2 rounded-xl border-2 transition-colors ${
                           location === loc
-                            ? 'bg-blue-600 text-white border-blue-600'
-                            : 'bg-white text-gray-700 border-gray-200 hover:border-blue-300'
+                            ? 'bg-blue text-crust border-blue'
+                            : 'bg-base text-subtext1 border-surface1 hover:border-blue'
                         }`}
                       >
                         {loc}
@@ -96,12 +96,12 @@ export function QuickLogModal({ isOpen, onClose, onSubmit }: QuickLogModalProps)
 
                 {/* Craving Strength */}
                 <div className="space-y-3">
-                  <label className="flex items-center gap-2 text-gray-700">
+                  <label className="flex items-center gap-2 text-subtext1">
                     <Activity className="w-5 h-5" />
                     Craving Strength
                   </label>
                   <div className="flex items-center gap-4">
-                    <span className="text-sm text-gray-500">Mild</span>
+                    <span className="text-sm text-subtext1">Mild</span>
                     <input
                       type="range"
                       min="1"
@@ -110,10 +110,10 @@ export function QuickLogModal({ isOpen, onClose, onSubmit }: QuickLogModalProps)
                       onChange={(e) => setCravingStrength(parseInt(e.target.value))}
                       className="flex-1"
                     />
-                    <span className="text-sm text-gray-500">Strong</span>
+                    <span className="text-sm text-subtext1">Strong</span>
                   </div>
                   <div className="text-center">
-                    <span className="inline-block bg-gray-100 rounded-full px-4 py-2">
+                    <span className="inline-block bg-surface0 rounded-full px-4 py-2">
                       Level {cravingStrength}/5
                     </span>
                   </div>
@@ -122,7 +122,7 @@ export function QuickLogModal({ isOpen, onClose, onSubmit }: QuickLogModalProps)
                 {/* Submit Button */}
                 <button
                   onClick={handleSubmit}
-                  className="w-full bg-gray-600 text-white rounded-xl py-4 hover:bg-gray-700 transition-colors"
+                  className="w-full bg-blue text-crust rounded-xl py-4 hover:bg-overlay2 transition-colors"
                 >
                   Log & Continue Journey
                 </button>

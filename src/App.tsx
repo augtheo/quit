@@ -46,7 +46,6 @@ export default function App() {
   const [cigaretteLogs, setCigaretteLogs] = useState<CigaretteLog[]>([]);
   const [cravingConquests, setCravingConquests] = useState<CravingConquest[]>([]);
   const [quitPoints, setQuitPoints] = useState(0);
-  const [darkMode, setDarkMode] = useState(false);
   const [achievements, setAchievements] = useState<Achievement[]>([
     { id: '1', name: '48 Hours Cleared', description: '48 hours smoke-free', icon: '🌅', unlocked: false },
     { id: '2', name: 'First Week Victory', description: '7 days smoke-free', icon: '🎯', unlocked: false },
@@ -65,19 +64,12 @@ export default function App() {
     const savedConquests = localStorage.getItem('quieresfumar_conquests');
     const savedPoints = localStorage.getItem('quieresfumar_points');
     const savedAchievements = localStorage.getItem('quieresfumar_achievements');
-    const savedDarkMode = localStorage.getItem('quieresfumar_darkmode');
     if (savedProfile) setUserProfile(JSON.parse(savedProfile));
     if (savedLogs) setCigaretteLogs(JSON.parse(savedLogs));
     if (savedConquests) setCravingConquests(JSON.parse(savedConquests));
     if (savedPoints) setQuitPoints(JSON.parse(savedPoints));
     if (savedAchievements) setAchievements(JSON.parse(savedAchievements));
-    if (savedDarkMode) {
-      const isDark = JSON.parse(savedDarkMode);
-      setDarkMode(isDark);
-      if (isDark) {
-        document.documentElement.classList.add('dark');
-      }
-    }
+    document.documentElement.setAttribute('data-theme', 'dark');
   }, []);
 
   // Save data to localStorage
@@ -102,10 +94,6 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('quieresfumar_achievements', JSON.stringify(achievements));
   }, [achievements]);
-
-  useEffect(() => {
-    localStorage.setItem('quieresfumar_darkmode', JSON.stringify(darkMode));
-  }, [darkMode]);
 
   const handleSetupComplete = (profile: UserProfile) => {
     setUserProfile(profile);
@@ -192,7 +180,7 @@ export default function App() {
   }
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-b from-blue-50 to-green-50'} pb-20`}>
+    <div className="bg-background text-foreground min-h-screen pb-20">
       {currentView === 'dashboard' && (
         <Dashboard
           userProfile={userProfile}
@@ -240,17 +228,16 @@ export default function App() {
             localStorage.clear();
             window.location.reload();
           }}
-          onToggleDarkMode={setDarkMode}
         />
       )}
 
       {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 shadow-lg">
+      <nav className="fixed bottom-0 left-0 right-0 bg-card border-t border-border px-4 py-3 shadow-lg z-50">
         <div className="flex justify-around items-center max-w-md mx-auto">
           <button
             onClick={() => setCurrentView('dashboard')}
             className={`flex flex-col items-center gap-1 px-3 py-1 rounded-lg transition-colors ${
-              currentView === 'dashboard' ? 'text-blue-600' : 'text-gray-500'
+              currentView === 'dashboard' ? 'text-primary' : 'text-muted-foreground'
             }`}
           >
             <Home className="w-6 h-6" />
@@ -259,7 +246,7 @@ export default function App() {
           <button
             onClick={() => setCurrentView('calendar')}
             className={`flex flex-col items-center gap-1 px-3 py-1 rounded-lg transition-colors ${
-              currentView === 'calendar' ? 'text-blue-600' : 'text-gray-500'
+              currentView === 'calendar' ? 'text-primary' : 'text-muted-foreground'
             }`}
           >
             <CalendarDays className="w-6 h-6" />
@@ -268,7 +255,7 @@ export default function App() {
           <button
             onClick={() => setCurrentView('stats')}
             className={`flex flex-col items-center gap-1 px-3 py-1 rounded-lg transition-colors ${
-              currentView === 'stats' ? 'text-blue-600' : 'text-gray-500'
+              currentView === 'stats' ? 'text-primary' : 'text-muted-foreground'
             }`}
           >
             <BarChart3 className="w-6 h-6" />
@@ -277,7 +264,7 @@ export default function App() {
           <button
             onClick={() => setCurrentView('health')}
             className={`flex flex-col items-center gap-1 px-3 py-1 rounded-lg transition-colors ${
-              currentView === 'health' ? 'text-blue-600' : 'text-gray-500'
+              currentView === 'health' ? 'text-primary' : 'text-muted-foreground'
             }`}
           >
             <Heart className="w-6 h-6" />
@@ -286,7 +273,7 @@ export default function App() {
           <button
             onClick={() => setCurrentView('achievements')}
             className={`flex flex-col items-center gap-1 px-3 py-1 rounded-lg transition-colors ${
-              currentView === 'achievements' ? 'text-blue-600' : 'text-gray-500'
+              currentView === 'achievements' ? 'text-primary' : 'text-muted-foreground'
             }`}
           >
             <Trophy className="w-6 h-6" />
@@ -295,7 +282,7 @@ export default function App() {
           <button
             onClick={() => setCurrentView('coping')}
             className={`flex flex-col items-center gap-1 px-3 py-1 rounded-lg transition-colors ${
-              currentView === 'coping' ? 'text-blue-600' : 'text-gray-500'
+              currentView === 'coping' ? 'text-primary' : 'text-muted-foreground'
             }`}
           >
             <Lightbulb className="w-6 h-6" />
@@ -304,7 +291,7 @@ export default function App() {
           <button
             onClick={() => setCurrentView('settings')}
             className={`flex flex-col items-center gap-1 px-3 py-1 rounded-lg transition-colors ${
-              currentView === 'settings' ? 'text-blue-600' : 'text-gray-500'
+              currentView === 'settings' ? 'text-primary' : 'text-muted-foreground'
             }`}
           >
             <SettingsIcon className="w-6 h-6" />

@@ -133,8 +133,8 @@ export function HealthTimeline({ userProfile, cigaretteLogs }: HealthTimelinePro
           animate={{ opacity: 1, y: 0 }}
           className="text-center space-y-2 pt-4"
         >
-          <h1 className="text-blue-900">Health Recovery</h1>
-          <p className="text-gray-600">
+          <h1 className="text-text">Health Recovery</h1>
+          <p className="text-subtext0">
             Watch your body heal and recover over time
           </p>
         </motion.div>
@@ -143,7 +143,7 @@ export function HealthTimeline({ userProfile, cigaretteLogs }: HealthTimelinePro
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl p-6 text-white shadow-xl"
+          className="bg-gradient-to-br from-blue to-mauve rounded-3xl p-6 text-crust shadow-xl"
         >
           <div className="text-center">
             <div className="text-sm opacity-90 mb-2">Time Since Last Cigarette</div>
@@ -153,7 +153,7 @@ export function HealthTimeline({ userProfile, cigaretteLogs }: HealthTimelinePro
                 : `${Math.floor(hoursSinceLast / 24)} days`
               }
             </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+            <div className="bg-base/20 backdrop-blur-sm rounded-xl p-4">
               <p className="text-sm">
                 Your body is healing right now! Every moment counts. 🌟
               </p>
@@ -183,16 +183,16 @@ export function HealthTimeline({ userProfile, cigaretteLogs }: HealthTimelinePro
               >
                 {/* Timeline Line */}
                 {index < HEALTH_MILESTONES.length - 1 && (
-                  <div className="absolute left-6 top-14 w-0.5 h-full bg-gray-200" />
+                  <div className="absolute left-6 top-14 w-0.5 h-full bg-surface0" />
                 )}
 
                 {/* Icon */}
-                <div className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${
+                <div className={`relative w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${
                   isCompleted 
-                    ? 'bg-green-500 text-white' 
+                    ? 'bg-green text-crust' 
                     : isNext
-                    ? 'bg-blue-500 text-white animate-pulse'
-                    : 'bg-gray-200 text-gray-400'
+                    ? 'bg-blue text-crust animate-pulse'
+                    : 'bg-surface0 text-overlay2'
                 }`}>
                   {isCompleted ? (
                     <CheckCircle2 className="w-6 h-6" />
@@ -204,38 +204,38 @@ export function HealthTimeline({ userProfile, cigaretteLogs }: HealthTimelinePro
                 {/* Content */}
                 <div className={`flex-1 pb-8 ${
                   isCompleted 
-                    ? 'bg-green-50 border-green-200' 
+                    ? 'bg-green/20 border-green' 
                     : isNext
-                    ? 'bg-blue-50 border-blue-200'
-                    : 'bg-white border-gray-200'
+                    ? 'bg-blue/20 border-blue'
+                    : 'bg-base border-surface1'
                 } border-2 rounded-2xl p-4`}>
                   <div className="flex items-center justify-between mb-2">
                     <h3 className={`${
                       isCompleted 
-                        ? 'text-green-900' 
+                        ? 'text-green' 
                         : isNext
-                        ? 'text-blue-900'
-                        : 'text-gray-700'
+                        ? 'text-blue'
+                        : 'text-subtext1'
                     }`}>
                       {milestone.title}
                     </h3>
                     {isCompleted && (
-                      <span className="text-xs bg-green-500 text-white px-2 py-1 rounded-full">
+                      <span className="text-xs bg-green text-crust px-2 py-1 rounded-full">
                         ✓ Completed
                       </span>
                     )}
                     {isNext && (
-                      <span className="text-xs bg-blue-500 text-white px-2 py-1 rounded-full">
+                      <span className="text-xs bg-blue text-crust px-2 py-1 rounded-full">
                         Next
                       </span>
                     )}
                   </div>
                   <p className={`text-sm ${
                     isCompleted 
-                      ? 'text-green-700' 
+                      ? 'text-green' 
                       : isNext
-                      ? 'text-blue-700'
-                      : 'text-gray-600'
+                      ? 'text-blue'
+                      : 'text-subtext0'
                   }`}>
                     {milestone.description}
                   </p>
@@ -249,7 +249,7 @@ export function HealthTimeline({ userProfile, cigaretteLogs }: HealthTimelinePro
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl p-6 text-white text-center"
+          className="bg-gradient-to-r from-mauve to-pink rounded-2xl p-6 text-crust text-center"
         >
           <h3 className="mb-2">Keep Going!</h3>
           <p className="text-sm opacity-90">
